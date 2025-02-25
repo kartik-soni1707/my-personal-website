@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, NavbarComponent],
   template:`
-  <h1>Heyy</h1>
+  <app-navbar/>
+  <router-outlet></router-outlet> <!-- Add this line to load routed components -->
   `,
   styleUrl: './app.component.css'
 })
