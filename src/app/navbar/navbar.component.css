@@ -1,0 +1,22 @@
+nav {
+    background-color: #333; /* Dark background */
+    padding: 10px 20px; /* Spacing */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Only bottom margin */
+    border-radius: 15px; /* Rounded corners */
+  }
+  
+  nav a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Spacing around links */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  nav a:hover {
+    background-color: #555; /* Change background on hover */
+  }
+  
