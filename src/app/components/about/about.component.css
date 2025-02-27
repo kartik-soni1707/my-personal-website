@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+.profile img {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    border: 0.2em solid #ccc;
+    max-width: 120px;
+    max-height: 120px;
+}
+
+h1 {
+    margin: 0.5em 0;
+    font-size: 2em;
+    color: #333;
+}
+
+.title {
+    color: #666;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2vw;
+    width: 85vw;
+    height: 55vh; /* Uses more space but avoids scrolling */
+    max-height: 60vh;
+}
+
+.info div {
+    flex: 1;
+    padding: 2%;
+    border-radius: 0.8em;
+    text-align: center;
+    border: 0.1em solid #ccc;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.info div:hover {
+    transform: scale(1.2); /* Increased scaling for a more prominent effect */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15); /* More depth for hover */
+    background: rgba(0, 115, 230, 0.9); /* Solid background color */
+}
+
+.info i {
+    font-size: 2.2em;
+    color: #0073e6;
+    margin-bottom: 1em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .info {
+        gap: 1.5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .info {
+        flex-direction: column;
+        width: 90vw;
+        height: auto;
+        max-height: none;
+    }
+}
