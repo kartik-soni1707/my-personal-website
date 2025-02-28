@@ -1,22 +1,25 @@
 nav {
-    background-color: #333; /* Dark background */
-    padding: 10px 20px; /* Spacing */
-    display: flex; /* Flexbox for layout */
-    justify-content: space-between; /* Space between items */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 10px; /* Only bottom margin */
-    border-radius: 15px; /* Rounded corners */
-  }
+  background-color: #333; /* Dark background */
+  padding: 15px 40px; /* Increased padding for a bigger feel */
+  display: flex; /* Flexbox for layout */
+  justify-content: center; /* Center the links */
+  align-items: center; /* Center items vertically */
+  margin: 20px auto; /* Center the navbar */
+  border-radius: 20px; /* More rounded corners */
+  width: 60%; /* Make it wider but not full-width */
+  max-width: 800px; /* Limit max width */
+}
   
-  nav a {
-    color: white; /* Link color */
-    text-decoration: none; /* Remove underline */
-    padding: 10px 15px; /* Spacing around links */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition */
-  }
-  
-  nav a:hover {
-    background-color: #555; /* Change background on hover */
-  }
-  
+nav a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+  padding: 12px 20px; /* Increased padding */
+  font-size: 1.2rem; /* Bigger text */
+  border-radius: 8px; /* More rounded corners */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+nav a:hover {
+  background-color: #555; /* Change background on hover */
+  transform: scale(1.1); /* Slightly enlarge on hover */
+}
