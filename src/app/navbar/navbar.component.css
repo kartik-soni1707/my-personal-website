@@ -1,8 +1,8 @@
 nav {
   background-color: #333; /* Dark background */
-  padding: 15px 40px; /* Increased padding for a bigger feel */
+  padding: 15px 40px; /* More padding for a bigger navbar */
   display: flex; /* Flexbox for layout */
-  justify-content: center; /* Center the links */
+  justify-content: space-evenly; /* Spread items evenly */
   align-items: center; /* Center items vertically */
   margin: 20px auto; /* Center the navbar */
   border-radius: 20px; /* More rounded corners */
@@ -15,11 +15,18 @@ nav a {
   text-decoration: none; /* Remove underline */
   padding: 12px 20px; /* Increased padding */
   font-size: 1.2rem; /* Bigger text */
-  border-radius: 8px; /* More rounded corners */
+  border-radius: 8px; /* Rounded corners */
   transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
 }
 
 nav a:hover {
   background-color: #555; /* Change background on hover */
   transform: scale(1.1); /* Slightly enlarge on hover */
+}
+.active-link {
+  background-color: #555; /* Different background for active page */
+  color: yellow; /* Highlight text */
+  font-weight: bold; /* Make it stand out */
+  border-radius: 8px; /* Keep rounded corners */
+  padding: 12px 20px; /* Ensure padding matches */
 }
