@@ -119,17 +119,29 @@ p {
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px; /* Adds spacing between tags */
+  gap: 6px; /* Reduces spacing between tags */
 }
 
 .tech-tag {
   background-color: black;
   color: white;
-  padding: 6px 12px;
-  border-radius: 15px; /* Rounded corners */
-  font-size: 0.9em;
-  font-weight: bold;
+  padding: 4px 10px; /* Reduced padding */
+  border-radius: 12px; /* Smaller rounded corners */
+  font-size: 0.8em; /* Reduced font size */
+  font-weight: 500; /* Lighter weight for balance */
   display: inline-block;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+  text-transform: capitalize; /* Capitalize each word */
+  letter-spacing: 0.4px;
+  white-space: nowrap; /* Prevents text wrapping */
 }
+
+.tech-tag[data-tech="JavaScript"] { background-color: #f7df1e; color: black; } /* Yellow */
+.tech-tag[data-tech="Python"] { background-color: #3776ab; } /* Blue */
+.tech-tag[data-tech="TensorFlow"] { background-color: #ffa000; } /* Orange */
+.tech-tag[data-tech="Keras"] { background-color: #d00000; } /* Red */
+.tech-tag[data-tech="Machine Learning"] { background-color: #34a853; } /* Green */
+.tech-tag[data-tech="Deep Learning"] { background-color: #ff5722; } /* Deep Orange */
+.tech-tag[data-tech="NLP"] { background-color: #673ab7; } /* Purple */
+.tech-tag[data-tech="Flask"] { background-color: #000000; } /* Black */
+.tech-tag[data-tech="Raspberry Pi"] { background-color: #c51a4a; } /* Dark Pink */
+.tech-tag[data-tech="IoT"] { background-color: #008080; } /* Teal */

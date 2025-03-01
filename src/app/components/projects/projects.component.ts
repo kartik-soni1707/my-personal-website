@@ -22,29 +22,53 @@ export class ProjectsComponent {
   }
   projects: Project[] = [
     {
-      title: 'My Websitr',
-      description: 'A personal portfolio website built with Angular.',
-      image: 'assets/mywebsitr.png',
-      link: 'https://kartiksoni1707.wixsite.com/creativity',
-      details: 'This is a portfolio website showcasing my projects and skills using Angular and modern web technologies. It features a dynamic project grid, responsive design, and an interactive UI.',
-      tech:["JS"],
-    },
-    {
-      title: 'Mask Detection',
-      description: 'Image processing research on mask detection.',
+      title: 'Mask Detection Using CNNs',
+      description: 'AI-powered application to detect whether a person is wearing a mask.',
       image: 'assets/mask_detection.png',
       link: 'https://github.com/yourrepo/mask-detection',
-      details: 'A research-based project that leverages deep learning and computer vision techniques to detect whether a person is wearing a mask in real-time images.',
-      tech:[],
+      details: 'Developed a deep learning model using CNNs with TensorFlow and Keras. Trained on a fabricated dataset for real-time mask detection.',
+      tech: ['TensorFlow', 'Keras', 'Deep Learning', 'Computer Vision'],
     },
     {
-      title: 'Event Management Platform',
-      description: 'Developed backend APIs for a large-scale event management app.',
-      image: 'assets/event_management.png',
-      link: 'https://whova.com',
-      details: 'Built scalable microservices and backend APIs for an event management system, enhancing user engagement and platform efficiency. Worked on authentication, event scheduling, and data analytics features.',
-      tech:[],
-    }
+      title: 'Sleep Detection from Wrist Accelerometer Data',
+      description: 'Sleep onset and wake detection using time-series wrist accelerometer data.',
+      image: 'assets/sleep_detection.png',
+      link: 'https://github.com/yourrepo/sleep-detection',
+      details: 'Built an ML pipeline using RNNs and Random Forests to analyze wrist accelerometer data, improving sleep state prediction. Optimized memory for 127M-row dataset.',
+      tech: ['RNN', 'Random Forest', 'Time Series', 'Machine Learning'],
+    },
+    {
+      title: 'AI-Powered Loan Prediction',
+      description: 'Machine learning model for fraud detection and loan approval.',
+      image: 'assets/loan_prediction.png',
+      link: 'https://github.com/yourrepo/loan-prediction',
+      details: 'Deployed a web-based ML model using Python. Utilized hyperparameter tuning to improve fraud detection and loan approval predictions.',
+      tech: ['Python', 'Scikit-Learn', 'Machine Learning', 'Flask'],
+    },
+    {
+      title: 'Robotics IoT Project',
+      description: 'Autonomous wireless robot with YouTube livestream.',
+      image: 'assets/robotics_iot.png',
+      link: 'https://github.com/yourrepo/robotics-iot',
+      details: 'Developed an obstacle detection and avoidance system using Raspberry Pi. Enabled real-time video streaming to YouTube.',
+      tech: ['Raspberry Pi', 'IoT', 'Obstacle Detection', 'Python'],
+    },
+    {
+      title: 'Spam Filter Using NLP',
+      description: 'AI-driven spam detection system using NLP.',
+      image: 'assets/spam_filter.png',
+      link: 'https://github.com/yourrepo/spam-filter',
+      details: 'Built a spam classification model using Naïve Bayes and NLP techniques to filter unwanted SMS and emails. Automated spam detection and blocking.',
+      tech: ['NLP', 'Naïve Bayes', 'Text Classification', 'Python'],
+    },
+    {
+      title: 'UMass Amherst - ML Research',
+      description: 'Research on deep learning for disease detection.',
+      image: 'assets/umass_research.png',
+      link: 'https://github.com/yourrepo/ml-research',
+      details: 'Worked under Prof. Jaime Davila to classify images for disease detection using CNNs. Achieved a 91% F1-score with hyperparameter tuning.',
+      tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
+    },
   ];
   
   selectedProject: Project | null = null;
