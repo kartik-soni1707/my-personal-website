@@ -15,6 +15,10 @@ interface Project {
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent {
+  constructor() {
+    // Listen for keydown events on the whole document
+    document.addEventListener('keydown', this.handleKeydown.bind(this));
+  }
   projects: Project[] = [
     {
       title: 'My Websitr',
@@ -40,7 +44,11 @@ export class ProjectsComponent {
   ];
   
   selectedProject: Project | null = null;
-
+  handleKeydown(event: KeyboardEvent) {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      this.closeModal();
+    }
+  }
   openModal(project: Project) {
     this.selectedProject = project;
   }
