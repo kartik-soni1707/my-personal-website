@@ -1,11 +1,23 @@
 <div class="projects-container">
+    <h2>My Projects</h2>
     <div class="projects-grid">
-      <div *ngFor="let project of projects" class="project-card">
+      <div *ngFor="let project of projects" class="project-card" (click)="openModal(project)">
         <img [src]="project.image" [alt]="project.title" class="project-image">
         <h3>{{ project.title }}</h3>
         <p>{{ project.description }}</p>
-        <a [href]="project.link" target="_blank" class="project-link">View Project →</a>
+        <a [href]="project.link" target="_blank" class="project-link" (click)="$event.stopPropagation()">View Project →</a>
       </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div *ngIf="selectedProject" class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-button" (click)="closeModal()">&times;</span>
+      <img [src]="selectedProject.image" [alt]="selectedProject.title" class="modal-image">
+      <h3>{{ selectedProject.title }}</h3>
+      <p>{{ selectedProject.details }}</p>
+      <a [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
     </div>
   </div>
   
