@@ -116,3 +116,20 @@ p {
 .close-button:hover {
   color: red;
 }
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; /* Adds spacing between tags */
+}
+
+.tech-tag {
+  background-color: black;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 15px; /* Rounded corners */
+  font-size: 0.9em;
+  font-weight: bold;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
