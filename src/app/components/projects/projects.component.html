@@ -1,5 +1,4 @@
 <div class="projects-container">
-    <h2>My Projects</h2>
     <div class="projects-grid">
       <div *ngFor="let project of projects" class="project-card" (click)="openModal(project)">
         <img [src]="project.image" [alt]="project.title" class="project-image">
