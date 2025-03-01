@@ -135,13 +135,50 @@ p {
   white-space: nowrap; /* Prevents text wrapping */
 }
 
-.tech-tag[data-tech="JavaScript"] { background-color: #f7df1e; color: black; } /* Yellow */
-.tech-tag[data-tech="Python"] { background-color: #3776ab; } /* Blue */
-.tech-tag[data-tech="TensorFlow"] { background-color: #ffa000; } /* Orange */
-.tech-tag[data-tech="Keras"] { background-color: #d00000; } /* Red */
-.tech-tag[data-tech="Machine Learning"] { background-color: #34a853; } /* Green */
-.tech-tag[data-tech="Deep Learning"] { background-color: #ff5722; } /* Deep Orange */
-.tech-tag[data-tech="NLP"] { background-color: #673ab7; } /* Purple */
-.tech-tag[data-tech="Flask"] { background-color: #000000; } /* Black */
-.tech-tag[data-tech="Raspberry Pi"] { background-color: #c51a4a; } /* Dark Pink */
-.tech-tag[data-tech="IoT"] { background-color: #008080; } /* Teal */
+/* AI & Machine Learning - 🟠 Orange */
+.tech-tag[data-tech="Machine Learning"],
+.tech-tag[data-tech="Deep Learning"],
+.tech-tag[data-tech="TensorFlow"],
+.tech-tag[data-tech="Keras"],
+.tech-tag[data-tech="Scikit-Learn"],
+.tech-tag[data-tech="CNN"],
+.tech-tag[data-tech="RNN"],
+.tech-tag[data-tech="Random Forest"],
+.tech-tag[data-tech="Naïve Bayes"],
+.tech-tag[data-tech="Data Augmentation"],
+.tech-tag[data-tech="Text Classification"] {
+  background-color: #ff9800; /* Orange */
+}
+
+/* Computer Vision & Image Processing - 🔵 Blue */
+.tech-tag[data-tech="Computer Vision"],
+.tech-tag[data-tech="Data Augmentation"],
+.tech-tag[data-tech="CNN"] {
+  background-color: #2196f3; /* Blue */
+}
+
+/* Time-Series & Signal Processing - 🟣 Purple */
+.tech-tag[data-tech="Time Series"],
+.tech-tag[data-tech="RNN"] {
+  background-color: #9c27b0; /* Purple */
+}
+
+/* Web & Deployment - 🟢 Green */
+.tech-tag[data-tech="Flask"],
+.tech-tag[data-tech="Python"] {
+  background-color: #4caf50; /* Green */
+}
+
+/* Robotics & IoT - 🔴 Red */
+.tech-tag[data-tech="Raspberry Pi"],
+.tech-tag[data-tech="IoT"],
+.tech-tag[data-tech="Obstacle Detection"] {
+  background-color: #e91e63; /* Red */
+}
+
+/* NLP & Text Analysis - 🟡 Yellow */
+.tech-tag[data-tech="NLP"],
+.tech-tag[data-tech="Text Classification"] {
+  background-color: #ffeb3b; /* Yellow */
+  color: black; /* Ensuring readability */
+}
