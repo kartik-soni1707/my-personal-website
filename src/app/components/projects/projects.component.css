@@ -120,6 +120,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 6px; /* Reduces spacing between tags */
+  align-self: flex-end;
 }
 
 .tech-tag {
