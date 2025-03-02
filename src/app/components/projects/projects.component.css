@@ -186,6 +186,7 @@ p {
 .video-container {
   width: 100%;
   max-width: 800px; /* Adjust as needed */
+  max-height: 60%; 
   aspect-ratio: 16 / 9; /* Ensures correct video scaling */
   display: flex;
   justify-content: center;
