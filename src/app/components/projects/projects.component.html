@@ -16,8 +16,10 @@
   <div *ngIf="selectedProject" class="modal-overlay" (click)="closeModal()">
     <div class="modal-content" (click)="$event.stopPropagation()">
       <span class="close-button" (click)="closeModal()">&times;</span>
-      <img [src]="selectedProject.image" [alt]="selectedProject.title" class="modal-image">
       <h3>{{ selectedProject.title }}</h3>
+      <div *ngIf="selectedProject.video" class="video-container">
+        <video [src]="selectedProject.video" controls></video>
+      </div>
       <p>{{ selectedProject.details }}</p>
       <a [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
     </div>

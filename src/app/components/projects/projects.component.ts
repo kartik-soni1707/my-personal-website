@@ -4,10 +4,12 @@ import { Component } from '@angular/core';
 interface Project {
   title: string;
   description: string;
-  image: string;
+  image?: string;
   link: string;
   details: string;
-  tech: string[],
+  tech: string[];
+  video?: string;
+  source_code?: string;
 }
 @Component({
   selector: 'app-projects',
@@ -28,6 +30,7 @@ export class ProjectsComponent {
       link: 'https://github.com/yourrepo/mask-detection',
       details: 'Developed a deep learning model using CNNs with TensorFlow and Keras. Trained on a fabricated dataset for real-time mask detection.',
       tech: ['TensorFlow', 'Keras', 'Deep Learning', 'Computer Vision'],
+      video: "assets/mask_unmask.mp4",
     },
     {
       title: 'Sleep Detection from Wrist Accelerometer Data',
@@ -52,6 +55,7 @@ export class ProjectsComponent {
       link: 'https://github.com/yourrepo/robotics-iot',
       details: 'Developed an obstacle detection and avoidance system using Raspberry Pi. Enabled real-time video streaming to YouTube.',
       tech: ['Raspberry Pi', 'IoT', 'Obstacle Detection', 'Python'],
+      
     },
     {
       title: 'Spam Filter Using NLP',
