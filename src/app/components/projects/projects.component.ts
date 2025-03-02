@@ -1,5 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { SafeUrlPipe } from '../../safe-url.pipe';
 
 interface Project {
   title: string;
@@ -10,10 +11,11 @@ interface Project {
   tech: string[];
   video?: string;
   source_code?: string;
+  youtube?:string;
 }
 @Component({
   selector: 'app-projects',
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf,SafeUrlPipe],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
@@ -55,7 +57,7 @@ export class ProjectsComponent {
       link: 'https://github.com/yourrepo/robotics-iot',
       details: 'Developed an obstacle detection and avoidance system using Raspberry Pi. Enabled real-time video streaming to YouTube.',
       tech: ['Raspberry Pi', 'IoT', 'Obstacle Detection', 'Python'],
-      
+      youtube:'https://www.youtube.com/embed/lFT1fCSQSuI',
     },
     {
       title: 'Spam Filter Using NLP',

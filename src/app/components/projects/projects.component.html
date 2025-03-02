@@ -20,7 +20,18 @@
       <div *ngIf="selectedProject.video" class="video-container">
         <video [src]="selectedProject.video" controls></video>
       </div>
-      <p>{{ selectedProject.details }}</p>
+      
+      <iframe *ngIf="selectedProject.youtube"
+        width="560" 
+        height="315" 
+        [src]="selectedProject.youtube| safeUrl" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+      </iframe>
+
+      <p>{{ selectedProject.details }} </p>
+
       <a [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
     </div>
   </div>
