@@ -28,7 +28,7 @@
       </div>
       <p>{{ selectedProject.details}}</p>
 
-      <a [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
+      <a *ngIf="selectedProject.link" [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
     </div>
   </div>
   
