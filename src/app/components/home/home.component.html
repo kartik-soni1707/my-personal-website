@@ -3,8 +3,9 @@
       <img src="assets/profile.JPG" alt="Profile Picture">
     </div>
     <div class="info-container">
-      <h2>{{intro}}</h2>
-     
+      <h2 *ngFor="let item of items">
+        {{ item }}
+      </h2>
       <div class="social-links">
         <a href="https://github.com/kartik-soni1707/" target="_blank">
             <img src="assets/github.svg" alt="GitHub">
