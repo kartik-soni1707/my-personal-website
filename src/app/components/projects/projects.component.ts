@@ -65,6 +65,7 @@ export class ProjectsComponent {
       link: 'https://www.linkedin.com/posts/kartik-soni-1707_nlp-internship-activity-6671122970318135296-Fr9G?utm_source=share&utm_medium=member_desktop&rcm=ACoAACOVBuoBAqFJUsJwUniQs115wGitu8yQof4',
       details: 'Built a spam classification model using Naïve Bayes and NLP techniques to filter unwanted SMS and emails. Automated spam detection and blocking.',
       tech: ['NLP', 'Naïve Bayes', 'Text Classification', 'Python'],
+      video: "assets/spam_filter.mp4",
     },
     {
       title: 'UMass Amherst - ML Research',
