@@ -85,9 +85,21 @@ export class ProjectsComponent {
   }
   openModal(project: Project) {
     this.selectedProject = project;
+    this.callBackend();
   }
 
   closeModal() {
     this.selectedProject = null;
   }
+
+  callBackend() {
+    if (this.selectedProject!=null && this.selectedProject.title==="Sleep Detection from Wrist Accelerometer Data"){
+      fetch('/api/hello')  // use proxy locally if Angular is on 4200
+        .then(res => res.json())
+        .then(data => {
+          console.log('Backend response:', data);
+        })
+        .catch(err => console.error('Error calling backend:', err));
+    }
+ }
 }
