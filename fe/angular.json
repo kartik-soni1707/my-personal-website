@@ -60,7 +60,8 @@
               "buildTarget": "my-personal-website:build:production"
             },
             "development": {
-              "buildTarget": "my-personal-website:build:development"
+              "buildTarget": "my-personal-website:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

@@ -13,4 +13,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 export class AppComponent {
   title = 'my-personal-website';
+  constructor() {
+    // Call your Vercel serverless function immediately
+    this.callBackend();
+  }
+  callBackend() {
+    fetch('/api/hello')  // use proxy locally if Angular is on 4200
+      .then(res => res.json())
+      .then(data => {
+        console.log('Backend response:', data["message"]);
+      })
+      .catch(err => console.error('Error calling backend:', err));
+  }
 }
