@@ -1,6 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { SafeUrlPipe } from '../../safe-url.pipe';
+import { Chart } from 'chart.js/auto';
 
 interface Project {
   title: string;
@@ -12,6 +13,7 @@ interface Project {
   video?: string;
   source_code?: string;
   youtube?:string;
+  chart?:string;
 }
 @Component({
   selector: 'app-projects',
@@ -19,7 +21,7 @@ interface Project {
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent {
+export class ProjectsComponent  {
   constructor() {
     // Listen for keydown events on the whole document
     document.addEventListener('keydown', this.handleKeydown.bind(this));
@@ -76,6 +78,54 @@ export class ProjectsComponent {
       tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
     },
   ];
+
+drawChart(data: any) {
+  const ctx = document.getElementById("myChart") as HTMLCanvasElement;
+  
+  const labels = data.map((row: any) =>
+    new Date(row.recorded_at)
+  );
+
+  const temperatureValues = data.map((row: any) => row.temperature);
+  const humidityValues = data.map((row: any) => row.humidity);
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        {
+          label: 'Temperature (°C)',
+          data: temperatureValues,
+          borderColor: 'red',
+          backgroundColor: 'rgba(255,0,0,0.1)',
+          borderWidth: 2,
+        },
+        {
+          label: 'Humidity (%)',
+          data: humidityValues,
+          borderColor: 'blue',
+          backgroundColor: 'rgba(0,0,255,0.1)',
+          borderWidth: 2,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          display: true
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+
   
   selectedProject: Project | null = null;
   handleKeydown(event: KeyboardEvent) {
@@ -85,9 +135,22 @@ export class ProjectsComponent {
   }
   openModal(project: Project) {
     this.selectedProject = project;
+    this.callBackend();
   }
 
   closeModal() {
     this.selectedProject = null;
+  }
+  callBackend(){
+    if(this.selectedProject?.title==="Sleep Detection from Wrist Accelerometer Data"){
+      this.selectedProject.chart="true";
+      fetch("https://kartik-tempsensor.vercel.app/api/hello")
+      .then(data=>data.json())
+      .then(data=>{
+        this.drawChart(data);
+        console.log(data);
+      })
+      .catch(error=>console.log(error));
+    }
   }
 }

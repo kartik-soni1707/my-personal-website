@@ -26,6 +26,7 @@
           allowfullscreen>
         </iframe>
       </div>
+      <canvas id="myChart" *ngIf="selectedProject.chart"></canvas>
       <p>{{ selectedProject.details}}</p>
 
       <a *ngIf="selectedProject.link" [href]="selectedProject.link" target="_blank" class="modal-link">Visit Project →</a>
