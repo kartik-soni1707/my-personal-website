@@ -9,7 +9,9 @@ export default async function handler(req, res) {
   try {
     const { data, error } = await supabase
       .from('sensor_data')       // <-- replace with your table
-      .select('*')         // <-- fields you want
+      .select('*')
+      .order('recorded_at', {ascending:false})
+      .limit(500)         // <-- fields you want
 
     if (error) throw error
 
