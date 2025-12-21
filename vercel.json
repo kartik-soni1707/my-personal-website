@@ -3,7 +3,7 @@
     {
       "src": "fe/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist/my-personal-website" }
+      "config": { "distDir": "dist/my-personal-website/browser" }
     },
     {
       "src": "api/**/*.js",
