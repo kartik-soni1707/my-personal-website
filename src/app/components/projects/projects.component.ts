@@ -1,7 +1,8 @@
 import { NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { SafeUrlPipe } from '../../safe-url.pipe';
 import { Chart } from 'chart.js/auto';
+import { ActivatedRoute } from '@angular/router';
 
 interface Project {
   title: string;
@@ -14,6 +15,7 @@ interface Project {
   source_code?: string;
   youtube?:string;
   chart?:string;
+  id?:string;
 }
 @Component({
   selector: 'app-projects',
@@ -21,8 +23,8 @@ interface Project {
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
-export class ProjectsComponent  {
-  constructor() {
+export class ProjectsComponent implements AfterViewInit{
+  constructor(private route: ActivatedRoute) {
     // Listen for keydown events on the whole document
     document.addEventListener('keydown', this.handleKeydown.bind(this));
   }
@@ -37,11 +39,11 @@ export class ProjectsComponent  {
       video: "assets/mask_unmask.mp4",
     },
     {
-      title: 'Sleep Detection from Wrist Accelerometer Data',
-      description: 'Sleep onset and wake detection using time-series wrist accelerometer data.',
-      image: 'assets/sleep_detection.png',
-      details: 'Built an ML pipeline using RNNs and Random Forests to analyze wrist accelerometer data, improving sleep state prediction. Optimized memory for 127M-row dataset.',
-      tech: ['RNN', 'Random Forest', 'Time Series', 'Machine Learning'],
+      title: 'Temperature and Humidity monitoring using Raspberry Pi',
+      description: 'Room temperature & humidity monitoring using Raspberry Pi (Python), Node.js backend, and PostgreSQL database',
+      details: 'Data Loading Pls Wait. Rpi (DHT11 sensor)->Python->PostgresSQL(DB)->Node Js(BE)->Angular(FE)',
+      tech: ['Python', 'PostgresSQL', 'Node Js',],
+      id: 'temp-sensor'
     },
     {
       title: 'AI-Powered Loan Prediction',
@@ -78,13 +80,27 @@ export class ProjectsComponent  {
       tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
     },
   ];
-
+ ngAfterViewInit() {
+    this.route.queryParams.subscribe(params => {
+      const id = params['id'];
+      if (id) {
+        this.openProjectModal(id);
+      }
+    });
+  }
+openProjectModal(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.click(); // triggers your modal opening logic
+    }
+  }
 drawChart(data: any) {
   const ctx = document.getElementById("myChart") as HTMLCanvasElement;
   
   const labels = data.map((row: any) =>
-    new Date(row.recorded_at)
-  );
+    new Date(row.recorded_at).toLocaleString("en-US", {
+    timeZone: "America/Los_Angeles"
+  }));
 
   const temperatureValues = data.map((row: any) => row.temperature);
   const humidityValues = data.map((row: any) => row.humidity);
@@ -142,7 +158,7 @@ drawChart(data: any) {
     this.selectedProject = null;
   }
   callBackend(){
-    if(this.selectedProject?.title==="Sleep Detection from Wrist Accelerometer Data"){
+    if(this.selectedProject?.id==="temp-sensor"){
       this.selectedProject.chart="true";
       fetch("https://kartik-tempsensor.vercel.app/api/hello")
       .then(data=>data.json())
