@@ -2,7 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, AfterViewInit } from '@angular/core';
 import { SafeUrlPipe } from '../../safe-url.pipe';
 import { Chart } from 'chart.js/auto';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 interface Project {
   title: string;
@@ -24,7 +24,7 @@ interface Project {
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements AfterViewInit{
-  constructor(private route: ActivatedRoute) {
+  constructor(private router: Router,private route: ActivatedRoute) {
     // Listen for keydown events on the whole document
     document.addEventListener('keydown', this.handleKeydown.bind(this));
   }
@@ -161,6 +161,11 @@ drawChart(data: any) {
 
   closeModal() {
     this.selectedProject = null;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { id: null },
+      queryParamsHandling: 'merge', // keep other query params
+    });
   }
   callBackend(){
     if(this.selectedProject?.id==="temp-sensor"){
