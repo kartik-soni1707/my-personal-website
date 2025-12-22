@@ -15,7 +15,7 @@ interface Project {
   source_code?: string;
   youtube?:string;
   chart?:string;
-  id?:string;
+  id:string;
 }
 @Component({
   selector: 'app-projects',
@@ -37,6 +37,7 @@ export class ProjectsComponent implements AfterViewInit{
       details: 'Developed a deep learning model using CNNs with TensorFlow and Keras. Trained on a fabricated dataset for real-time mask detection.',
       tech: ['TensorFlow', 'Keras', 'Deep Learning', 'Computer Vision'],
       video: "assets/mask_unmask.mp4",
+      id: "mask-detect"
     },
     {
       title: 'Temperature and Humidity monitoring using Raspberry Pi',
@@ -52,6 +53,7 @@ export class ProjectsComponent implements AfterViewInit{
       link: 'https://github.com/kartik-soni1707/Ai-Powered-Loan-Heroku-',
       details: 'Deployed a web-based ML model using Python. Utilized hyperparameter tuning to improve fraud detection and loan approval predictions.',
       tech: ['Python', 'Scikit-Learn', 'Machine Learning', 'Flask'],
+      id: "ai-loan"
     },
     {
       title: 'Robotics IoT Project',
@@ -61,6 +63,7 @@ export class ProjectsComponent implements AfterViewInit{
       details: 'Developed an obstacle detection and avoidance system using Raspberry Pi. Enabled real-time video streaming to YouTube.',
       tech: ['Raspberry Pi', 'IoT', 'Obstacle Detection', 'Python'],
       youtube:'https://www.youtube.com/embed/lFT1fCSQSuI',
+      id: "robotics-project"
     },
     {
       title: 'Spam Filter Using NLP',
@@ -70,6 +73,7 @@ export class ProjectsComponent implements AfterViewInit{
       details: 'Built a spam classification model using Naïve Bayes and NLP techniques to filter unwanted SMS and emails. Automated spam detection and blocking.',
       tech: ['NLP', 'Naïve Bayes', 'Text Classification', 'Python'],
       video: "assets/spam_filter.mp4",
+      id: 'spam-filter'
     },
     {
       title: 'UMass Amherst - ML Research',
@@ -78,6 +82,7 @@ export class ProjectsComponent implements AfterViewInit{
       link: 'https://drive.google.com/file/d/1F8g_FJjqosQlJ8CYwmyXB5fZ1xOZIgRl/view?usp=sharing',
       details: 'Worked under Prof. Jaime Davila to classify images for disease detection using CNNs. Achieved a 91% F1-score with hyperparameter tuning.',
       tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
+      id: "ml-research"
     },
   ];
  ngAfterViewInit() {
@@ -135,7 +140,7 @@ drawChart(data: any) {
       },
       scales: {
         y: {
-          beginAtZero: true
+          beginAtZero: false
         }
       }
     }
