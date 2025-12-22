@@ -44,7 +44,8 @@ export class ProjectsComponent implements AfterViewInit{
       description: 'Room temperature & humidity monitoring using Raspberry Pi (Python), Node.js backend, and PostgreSQL database',
       details: 'Data Loading Pls Wait. Rpi (DHT11 sensor)->Python->PostgresSQL(DB)->Node Js(BE)->Angular(FE)',
       tech: ['Python', 'PostgresSQL', 'Node Js',],
-      id: 'temp-sensor'
+      id: 'temp-sensor',
+      link: 'https://github.com/kartik-soni1707/tempsensor'
     },
     {
       title: 'AI-Powered Loan Prediction',
@@ -170,7 +171,7 @@ drawChart(data: any) {
   callBackend(){
     if(this.selectedProject?.id==="temp-sensor"){
       this.selectedProject.chart="true";
-      fetch("https://kartik-tempsensor.vercel.app/api/hello")
+      fetch("https://kartik-backend.vercel.app/api/temp_sensor")
       .then(data=>data.json())
       .then(data=>{
         this.drawChart(data);
