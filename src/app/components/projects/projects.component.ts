@@ -48,13 +48,12 @@ export class ProjectsComponent implements AfterViewInit{
       link: 'https://github.com/kartik-soni1707/tempsensor'
     },
     {
-      title: 'AI-Powered Loan Prediction',
-      description: 'Machine learning model for fraud detection and loan approval.',
-      image: 'assets/loan_prediction.png',
-      link: 'https://github.com/kartik-soni1707/Ai-Powered-Loan-Heroku-',
-      details: 'Deployed a web-based ML model using Python. Utilized hyperparameter tuning to improve fraud detection and loan approval predictions.',
-      tech: ['Python', 'Scikit-Learn', 'Machine Learning', 'Flask'],
-      id: "ai-loan"
+      title: 'Integrating Kubernetes with CI/CD',
+      description: 'Automated CI/CD pipeline execution on a Kubernetes cluster.',
+      details: 'Designed and implemented a robust CI/CD pipeline on Google Kubernetes Engine (GKE) using GitLab CI .gitlab-ci.yml, Helm charts, and kubectl for cluster management. Leveraged Kubernetes’ autoscaling capabilities to run multiple CI/CD jobs in parallel, significantly improving computational efficiency and reducing idle resource costs. Automated build, test, and deployment workflows ensured scalable, reliable, and cost-effective delivery of applications while optimizing cluster utilization and simplifying operational management.',
+      tech: ['CI/CD', 'Kubernetes', 'Helm', 'GKE'],
+      id: "ci-cd",
+      youtube: "https://drive.google.com/file/d/1_tPNogqlD5amkajQQZTt633T2_YMZeL6/preview",
     },
     {
       title: 'Robotics IoT Project',
@@ -80,7 +79,7 @@ export class ProjectsComponent implements AfterViewInit{
       title: 'UMass Amherst - ML Research',
       description: 'Research on deep learning for disease detection.',
       image: 'assets/umass_research.png',
-      link: 'https://drive.google.com/file/d/1F8g_FJjqosQlJ8CYwmyXB5fZ1xOZIgRl/view?usp=sharing',
+      youtube: 'https://drive.google.com/file/d/1F8g_FJjqosQlJ8CYwmyXB5fZ1xOZIgRl/preview',
       details: 'Worked under Prof. Jaime Davila to classify images for disease detection using CNNs. Achieved a 91% F1-score with hyperparameter tuning.',
       tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
       id: "ml-research"
