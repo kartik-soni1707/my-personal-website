@@ -50,7 +50,7 @@ export class ProjectsComponent implements AfterViewInit{
     {
       title: 'Integrating Kubernetes with CI/CD',
       description: 'Automated CI/CD pipeline execution on a Kubernetes cluster.',
-      details: 'Designed and implemented a robust CI/CD pipeline on Google Kubernetes Engine (GKE) using GitLab CI .gitlab-ci.yml, Helm charts, and kubectl for cluster management. Leveraged Kubernetes’ autoscaling capabilities to run multiple CI/CD jobs in parallel, significantly improving computational efficiency and reducing idle resource costs. Automated build, test, and deployment workflows ensured scalable, reliable, and cost-effective delivery of applications while optimizing cluster utilization and simplifying operational management.',
+      details: 'Designed and implemented a robust CI/CD pipeline on Google Kubernetes Engine (GKE) using GitLab CI .gitlab-ci.yml, Helm charts, and kubectl for cluster management. Leveraged Kubernetes’ autoscaling capabilities to run multiple CI/CD jobs in parallel, significantly improving computational efficiency and reducing idle resource costs. Automated build, test, and deployment workflows ensured scalable, reliable, and cost-effective delivery of applications while optimizing cluster utilization and simplifying operational management. This is a personal project. All tools shown (GitLab, VS Code, GKE, kubectl, etc.) are part of my own setup and not affiliated with or endorsed by my employer.',
       tech: ['CI/CD', 'Kubernetes', 'Helm', 'GKE'],
       id: "ci-cd",
       youtube: "https://drive.google.com/file/d/1_tPNogqlD5amkajQQZTt633T2_YMZeL6/preview",
