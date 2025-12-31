@@ -103,9 +103,13 @@ drawChart(data: any) {
   const ctx = document.getElementById("myChart") as HTMLCanvasElement;
   
   const labels = data.map((row: any) =>
-    new Date(row.recorded_at).toLocaleString("en-US", {
+  new Date(row.recorded_at).toLocaleTimeString("en-US", {
+    hour: '2-digit',
+    minute: '2-digit',
     timeZone: "America/Los_Angeles"
-  }));
+  })
+);
+
 
   const temperatureValues = data.map((row: any) => row.temperature);
   const humidityValues = data.map((row: any) => row.humidity);
@@ -132,18 +136,32 @@ drawChart(data: any) {
       ]
     },
     options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          display: true
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: false
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    tooltip: {
+      callbacks: {
+        title: (items) => {
+          const idx = items[0].dataIndex;
+          return new Date(data[idx].recorded_at).toLocaleString("en-US", {
+            timeZone: "America/Los_Angeles"
+          });
         }
       }
     }
+  },
+  scales: {
+    x: {
+      ticks: {
+        autoSkip: true,
+        maxTicksLimit: 300,
+        maxRotation: 45,
+        minRotation: 45
+      }
+    }
+  }
+}
+
   });
 }
 
