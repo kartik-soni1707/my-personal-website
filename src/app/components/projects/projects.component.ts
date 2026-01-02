@@ -4,6 +4,7 @@ import { SafeUrlPipe } from '../../safe-url.pipe';
 import { Chart } from 'chart.js/auto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HoverPointerDirective } from "../../directives/hover-pointer.directive";
+import { TempSensorService } from '../../service/temp-sensor.service';
 
 interface Project {
   title: string;
@@ -25,7 +26,7 @@ interface Project {
   styleUrl: './projects.component.css'
 })
 export class ProjectsComponent implements AfterViewInit{
-  constructor(private router: Router,private route: ActivatedRoute) {
+  constructor(private router: Router,private route: ActivatedRoute, private tempService: TempSensorService) {
     // Listen for keydown events on the whole document
     document.addEventListener('keydown', this.handleKeydown.bind(this));
   }
@@ -189,13 +190,13 @@ drawChart(data: any) {
   callBackend(){
     if(this.selectedProject?.id==="temp-sensor"){
       this.selectedProject.chart="true";
-      fetch("https://kartik-backend.vercel.app/api/temp_sensor")
-      .then(data=>data.json())
-      .then(data=>{
-        this.drawChart(data);
-        console.log(data);
-      })
-      .catch(error=>console.log(error));
+      this.tempService.getSensorData().subscribe({
+        next: (data) => {
+          console.log(data); // now you have your sensor data
+          this.drawChart(data); // use your existing method
+        },
+        error: (err) => console.error(err)
+      });
     }
   }
 }
