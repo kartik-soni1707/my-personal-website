@@ -3,6 +3,7 @@ import { Component, AfterViewInit } from '@angular/core';
 import { SafeUrlPipe } from '../../safe-url.pipe';
 import { Chart } from 'chart.js/auto';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HoverPointerDirective } from "../../hover-pointer.directive";
 
 interface Project {
   title: string;
@@ -19,7 +20,7 @@ interface Project {
 }
 @Component({
   selector: 'app-projects',
-  imports: [NgFor, NgIf,SafeUrlPipe],
+  imports: [NgFor, NgIf, SafeUrlPipe, HoverPointerDirective],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'
 })
