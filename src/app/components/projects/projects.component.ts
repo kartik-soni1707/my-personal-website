@@ -18,6 +18,7 @@ interface Project {
   youtube?:string;
   chart?:string;
   id:string;
+  drawn?: boolean;
 }
 @Component({
   selector: 'app-projects',
@@ -44,7 +45,7 @@ export class ProjectsComponent implements AfterViewInit{
     {
       title: 'Temperature and Humidity monitoring using Raspberry Pi',
       description: 'Room temperature & humidity monitoring using Raspberry Pi (Python), Node.js backend, and PostgreSQL database',
-      details: 'Data Loading Pls Wait. Rpi (DHT11 sensor)->Python->PostgresSQL(DB)->Node Js(BE)->Angular(FE)',
+      details: 'Rpi (DHT11 sensor)->Python->PostgresSQL(DB)->Node Js(BE)->Angular(FE)',
       tech: ['Python', 'PostgresSQL', 'Node Js',],
       id: 'temp-sensor',
       link: 'https://github.com/kartik-soni1707/tempsensor'
@@ -190,9 +191,12 @@ drawChart(data: any) {
   callBackend(){
     if(this.selectedProject?.id==="temp-sensor"){
       this.selectedProject.chart="true";
+      this.selectedProject.drawn=false;
       this.tempService.getSensorData().subscribe({
         next: (data) => {
           this.drawChart(data); // use your existing method
+          if(this.selectedProject)
+          this.selectedProject.drawn=true;
         },
       });
     }

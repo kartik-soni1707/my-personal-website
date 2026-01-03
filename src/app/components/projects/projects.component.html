@@ -27,6 +27,7 @@
         </iframe>
       </div>
       <div class="chart-container" *ngIf="selectedProject.chart">
+        <h1 *ngIf="!selectedProject.drawn">Loading Pls Wait</h1>
         <canvas id="myChart"></canvas>
       </div>
       <p>{{ selectedProject.details}}</p>
