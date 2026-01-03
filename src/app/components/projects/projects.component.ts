@@ -192,10 +192,8 @@ drawChart(data: any) {
       this.selectedProject.chart="true";
       this.tempService.getSensorData().subscribe({
         next: (data) => {
-          console.log(data); // now you have your sensor data
           this.drawChart(data); // use your existing method
         },
-        error: (err) => console.error(err)
       });
     }
   }
