@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent],
   template:`
-  <app-navbar/>
+  <app-navbar [childData]='title'/>
   <router-outlet></router-outlet> <!-- Add this line to load routed components -->
   `,
   styleUrl: './app.component.css'
