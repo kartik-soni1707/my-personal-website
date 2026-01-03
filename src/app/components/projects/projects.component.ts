@@ -1,6 +1,6 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, AfterViewInit } from '@angular/core';
-import { SafeUrlPipe } from '../../safe-url.pipe';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 import { Chart } from 'chart.js/auto';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HoverPointerDirective } from "../../directives/hover-pointer.directive";
