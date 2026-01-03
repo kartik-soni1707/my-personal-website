@@ -1,10 +1,15 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { AboutComponent } from '../components/about/about.component';
-import { ProjectsComponent } from '../components/projects/projects.component';
+
 
 export const routes: Routes = 
 [ { path: '', component: HomeComponent }, // Maps "/" to HomeComponent
   { path: 'about', component: AboutComponent },
-  { path: 'projects', component: ProjectsComponent },
+  {
+    path: 'projects',
+    loadComponent: () =>
+      import('../components/projects/projects.component')
+        .then(c => c.ProjectsComponent)
+  } 
 ];
