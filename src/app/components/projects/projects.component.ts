@@ -31,6 +31,7 @@ export class ProjectsComponent implements AfterViewInit{
     // Listen for keydown events on the whole document
     document.addEventListener('keydown', this.handleKeydown.bind(this));
   }
+  sub:any=""
   projects: Project[] = [
     {
       title: 'Mask Detection Using CNNs',
@@ -89,7 +90,7 @@ export class ProjectsComponent implements AfterViewInit{
     },
   ];
  ngAfterViewInit() {
-    this.route.queryParams.subscribe(params => {
+    this.sub=this.route.queryParams.subscribe(params => {
       const id = params['id'];
       if (id) {
         this.openProjectModal(id);
@@ -200,5 +201,8 @@ drawChart(data: any) {
         },
       });
     }
+  }
+  ngOnDestroy(){
+    this.sub.unsubscribe();
   }
 }
