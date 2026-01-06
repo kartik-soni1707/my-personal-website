@@ -166,6 +166,8 @@ p {
 
 /* Web & Deployment - 🟢 Green */
 .tech-tag[data-tech="Flask"],
+.tech-tag[data-tech="Angular"],
+.tech-tag[data-tech="TypeScript"],
 .tech-tag[data-tech="Python"] {
   background-color: #4caf50; /* Green */
 }

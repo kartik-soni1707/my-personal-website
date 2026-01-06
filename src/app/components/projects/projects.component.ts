@@ -88,6 +88,16 @@ export class ProjectsComponent implements AfterViewInit{
       tech: ['CNN', 'Deep Learning', 'TensorFlow', 'Data Augmentation'],
       id: "ml-research"
     },
+    {
+    title: 'Angular Demo',
+    description: 'Personal website built using Angular and TypeScript',
+    link: 'https://github.com/kartik-soni1707/my-personal-website',
+    youtube: 'https://drive.google.com/file/d/1u3yp_LZFjiVlxCLung-IDd8jj5BnD8WQ/preview',
+    details:
+      'Designed and developed a personal website leveraging Angular core concepts including components, templates, directives, services, dependency injection, pipes, routing, lazy loading, and lifecycle hooks.',
+    tech: ['Angular', 'TypeScript'],
+    id: 'web-demo'
+    }
   ];
  ngAfterViewInit() {
     this.sub=this.route.queryParams.subscribe(params => {
