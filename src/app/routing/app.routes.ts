@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from '../components/home/home.component';
 import { AboutComponent } from '../components/about/about.component';
 
-
 export const routes: Routes = 
 [ { path: '', component: HomeComponent }, // Maps "/" to HomeComponent
   { path: 'about', component: AboutComponent },
@@ -11,5 +10,11 @@ export const routes: Routes =
     loadComponent: () =>
       import('../components/projects/projects.component')
         .then(c => c.ProjectsComponent)
+  },
+  {
+    path: 'contact_me',
+    loadComponent: () =>
+      import('../components/contact-me/contact-me.component')
+        .then(c => c.ContactMeComponent)
   } 
 ];
