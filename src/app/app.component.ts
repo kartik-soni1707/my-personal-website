@@ -14,7 +14,7 @@ import { TrackingService } from './service/tracking.service';
 export class AppComponent {
   title = 'my-personal-website';
   constructor(private tracking: TrackingService){}
-  ngOninit(){
+  ngOnInit(){
     this.tracking.trackFirstVisit('home');
   }
 }
