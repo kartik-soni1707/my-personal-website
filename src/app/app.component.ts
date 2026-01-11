@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
-
+import { TrackingService } from './service/tracking.service';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent],
@@ -13,4 +13,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 })
 export class AppComponent {
   title = 'my-personal-website';
+  constructor(private tracking: TrackingService){}
+  ngOninit(){
+    this.tracking.trackFirstVisit('home');
+  }
 }
