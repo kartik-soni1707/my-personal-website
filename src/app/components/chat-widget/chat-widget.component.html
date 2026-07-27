@@ -1,0 +1,54 @@
+<!-- Floating launcher button (bottom-right) -->
+<button
+  class="cw-launcher"
+  [class.cw-launcher--hidden]="open"
+  (click)="toggle()"
+  aria-label="Open chat"
+>
+  <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+  </svg>
+</button>
+
+<!-- Chat panel -->
+<div class="cw-panel" [class.cw-panel--open]="open">
+  <div class="cw-header">
+    <div class="cw-header-title">
+      <span class="cw-dot"></span>
+      Ask about Kartik
+    </div>
+    <button class="cw-close" (click)="toggle()" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="cw-messages" #scrollArea>
+    <div *ngFor="let m of messages" class="cw-msg" [ngClass]="'cw-msg--' + m.role">
+      {{ m.text }}
+    </div>
+
+    <div *ngIf="loading" class="cw-msg cw-msg--bot cw-typing">
+      <span></span><span></span><span></span>
+    </div>
+    <div *ngIf="loading && firstRequest" class="cw-hint">
+      First reply can take a moment while the server wakes up…
+    </div>
+  </div>
+
+  <div class="cw-input-row">
+    <input
+      class="cw-input"
+      [(ngModel)]="question"
+      (keyup.enter)="send()"
+      [disabled]="loading"
+      placeholder="Type your question…"
+    />
+    <button class="cw-send" (click)="send()" [disabled]="loading || !question.trim()" aria-label="Send">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
+      </svg>
+    </button>
+  </div>
+</div>
